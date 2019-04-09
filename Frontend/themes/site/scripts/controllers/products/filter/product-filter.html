@@ -1,0 +1,60 @@
+<script>
+    setTimeout(function () {
+        $.removeData($('img'), 'elevateZoom');
+        $('.zoomContainer').remove();
+    }, 500);
+</script>
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div left-slidebar min-price="99" max-price="999" min-slider-value="199" max-slider-value="599"></div>
+            </div>
+
+            <div class="col-sm-9 padding-right">
+                <div class="features_items"><!--features_items-->
+                    <h2 class="title text-center">Category name</h2>
+
+                    <!--product list-->
+                    <div ng-repeat="p in products" class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
+                                <div class="productinfo text-center">
+                                    <img ng-src="{{pathFile + p.defaultImage}}" alt="" />
+                                    <h2>{{'$' + p.salePrice}}</h2>
+                                    <p>{{p.name}}</p>
+                                    <button ng-click="addToCart(p)" class="btn btn-default add-to-cart">
+                                        <i class="fa fa-shopping-cart"></i>Add to cart
+                                    </button>
+                                    <a ui-sref="product-details({productId: p.product_id})" class="btn btn-default add-to-cart">
+                                        <i class="fa fa-plus-square"></i>View detail
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="choose">
+                                <ul class="nav nav-pills nav-justified">
+                                    <li><a href=""><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+                                    <li><a href=""><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--paging-->
+                    <div class="col-md-12 text-center">
+                        <div paging
+                             page="1" 
+                             page-size="pageSize" 
+                             total="totalPage"
+                             show-prev-next="true"
+                             show-first-last="true"
+                             paging-action="loadPage(page)">
+                        </div>
+                        <!--                    <ul uib-pagination total-items="totalItems" ng-model="currentPage" max-size="maxSize" num-pages="totalPages" class="pagination-sm" boundary-link-numbers="true" rotate="false" ng-change="pageChanged()" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;" boundary-links="true"
+                                                        items-per-page="pageSize" ></ul>-->
+                    </div>
+                </div><!--features_items-->
+            </div>
+        </div>
+    </div>
+</section>

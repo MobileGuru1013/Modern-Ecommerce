@@ -1,0 +1,38 @@
+<script>
+    setTimeout(function () {
+        $.removeData($('img'), 'elevateZoom');
+        $('.zoomContainer').remove();
+    }, 500);
+</script>
+<section id="cart_items">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ol class="breadcrumb">
+                <li><a href="#">Home</a></li>
+                <li class="active">Shopping Cart</li>
+            </ol>
+        </div>
+        <shopping-cart />
+        
+    </div>
+</section> <!--/#cart_items-->
+
+<section id="do_action">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+            </div>
+            <div class="col-sm-6">
+                <div class="total_area">
+                    <ul>
+                        <li>Cart Sub Total <span>$0</span></li>
+                        <li>Eco Tax <span>$0</span></li>
+                        <li>Shipping Cost <span>Free</span></li>
+                        <li>Total <span>${{totalBill}}</span></li>
+                    </ul>
+                    <button class="btn btn-default check_out" ng-disabled="!(items.length > 0)" ng-click="goCheckOut()">Check Out</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/#do_action-->
